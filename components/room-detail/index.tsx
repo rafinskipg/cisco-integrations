@@ -26,6 +26,13 @@ const Detail = ({ roomId } : PropTypes) => {
           <Form roomId={roomId} onSuccess={revalidate} />
         </div>
       </div>
+      <style jsx>{`
+        .messages, .form-wr {
+          width: 600px;
+          margin: 0 auto;
+          padding: 15px;
+        }  
+      `}</style>
     </>
   )
 }

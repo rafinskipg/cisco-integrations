@@ -10,7 +10,7 @@ const Item = ({ room }: PropTypes) => {
   
   return (
     <>
-      <Link href={`/room/${room.id}`}>
+      <Link href={`/room/${room.id}?roomTitle=${room.title}`}>
         <div className="room-item">
           <h2>{room.title}</h2>
           <p className="last-activity">Last activity: {room.lastActivity}</p>

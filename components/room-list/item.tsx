@@ -22,6 +22,7 @@ const Item = ({ room }: PropTypes) => {
           border-radius: 12px;
           box-shadow: 0 16px 32px rgba(0,0,0,0.35);
           color: var(--purple-dark);
+          cursor: pointer;
           padding: 21px;
           transition: 0.35s ease;
         }
@@ -40,6 +41,26 @@ const Item = ({ room }: PropTypes) => {
           text-align: center;
           font-size: 16px;
           margin-top: 12px;
+        }
+
+        @media all and (max-width: 720px){
+          .room-item{
+            padding: 16px;
+          }
+  
+          .room-item h2{
+            font-size: 18px;
+          }
+  
+          .room-item p{
+            font-size: 14px;
+          }
+        }
+
+        @media all and (max-width: 600px){
+          .room-item:hover{
+            transform: scale(1.025);
+          }
         }
       `}</style>
     </>

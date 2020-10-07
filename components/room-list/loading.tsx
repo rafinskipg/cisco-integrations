@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function Loading() {
   return (
@@ -14,10 +14,8 @@ export default function Loading() {
           <div className="item"></div>
         </div>
       </div>
-      <style jsx>{
-        `
+      <style jsx>{`
         .loading-items {
-          
         }
 
         .item-wr {
@@ -30,8 +28,7 @@ export default function Loading() {
           background: grey;
           border-radius: 8px;
         }
-        `
-      }</style>
+      `}</style>
     </>
-  )
+  );
 }

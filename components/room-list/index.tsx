@@ -31,6 +31,33 @@ const List = () => {
           align-items: flex-start;
           display: flex;
           justify-content: space-between;
+          flex-wrap: wrap;
+        }
+        .item-wr {
+          min-width: 240px;
+          width: calc(33% - 16px);
+          margin: 0 8px 8px 8px;
+          min-width: 210px;
+        }
+
+        @media all and (max-width: 720px) {
+          .item-wr {
+            margin: 0 4px 8px 4px;
+          }
+
+          .room-list .main-container {
+            justify-content: center;
+          }
+        }
+
+        @media all and (max-width: 600px) {
+          .room-list .main-container {
+            flex-flow: column;
+          }
+
+          .item-wr{
+            width: 100%;
+          }
         }
       `}</style>
     </>

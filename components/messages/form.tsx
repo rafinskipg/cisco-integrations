@@ -43,18 +43,22 @@ const Form = ({ roomId, onSuccess }: PropTypes) => {
       </div>
       
       <style jsx>{`
+
         textarea {
+          border-radius: 8px 8px 0 0;
           display: block;
           width: 100%;
           height: 100px;
-          padding: 15px;
+          padding: 18px;
+          border: none;
         }
 
         button {
-          padding: 10px;
-          color: white;
-          background: purple;
-          border-radius: 10px;
+          font-weight: 600;
+          padding: 16px 8px;
+          color: var(--purple-dark);
+          background: var(--green);
+          border-radius: 0 0 8px 8px;
           width: 100%;
           border: none;
         }

@@ -26,6 +26,10 @@ function MyApp({ Component, pageProps }) {
             color: #FFF;
             font-family: 'Source Sans Pro', sans-serif;
           }
+
+          form, textarea, button, placeholder{
+            font-family: 'Source Sans Pro', sans-serif;
+          }
     
           a {
             color: inherit;

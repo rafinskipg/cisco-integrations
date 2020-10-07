@@ -18,6 +18,7 @@ const Hero = ({children} : Props) => {
           font-size: 24px;
           padding: 80px 0 120px;
           text-align: center;
+          text-transform: capitalize;
         }
       `}</style>
     </>

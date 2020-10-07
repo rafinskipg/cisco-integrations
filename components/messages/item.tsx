@@ -38,6 +38,7 @@ const Item = ({ message }: PropTypes) => {
           background: white;
           padding: 2px;
           height: 30px;
+          min-width: 30px;
           width: 30px;
           display: flex;
           align-items: center;
@@ -50,14 +51,23 @@ const Item = ({ message }: PropTypes) => {
         }
         .message-body {
           background: white;
-          padding: 10px;
-          border-radius: 10px;
+          padding: 8px;
+          border-radius: 0 8px 8px 8px;
+          margin-top: 8px;
           color: black;
         }
 
+        p{
+          color: var(--purple-dark);
+          font-size: 14px;
+        }
+
         .created {
+          color: var(--purple-dark);
           font-size: 10px;
-          margin-top: 10px;
+          font-weight: 600;
+          margin-top: 8px;
+          text-transform: uppercase;
         }
       `}</style>
     </>

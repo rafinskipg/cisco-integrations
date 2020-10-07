@@ -17,5 +17,7 @@ This token has to have access to fetch rooms and send messages, you can also use
 ## Routes
 
 - `GET /api/rooms` Returns the rooms this bot has access to
+- `GET /api/rooms/ROOM_ID` Returns the room detail
+
 - `GET /api/messages/ROOM_ID` fetches the messages for that room
 - `POST /api/messages/ROOM_ID` sends a message to the room

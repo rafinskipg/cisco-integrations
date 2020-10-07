@@ -1,5 +1,3 @@
-import * as w from 'webex'
-
 import { Message } from "../../interfaces"
 
 const CISCO_API = `https://webexapis.com/v1`
@@ -41,16 +39,19 @@ export async function getMessagesForRoom(roomId: string) {
 
 export function sendMessageToRoom(roomId: string, text: string) {
   console.log('Sending message to roomId', roomId, text)
-  const webex = w.init({
-    credentials: {
-      access_token: process.env.WEBEX_BOT_TOKEN
-    }
+  return axios.post(`${CISCO_API}/messages`, {
+    roomId,
+    text
+  }, {
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Authorization': `Bearer ${process.env.WEBEX_BOT_TOKEN}`
+    } 
   })
-
-  return webex.messages.create({
-    markdown: text,
-    roomId: roomId
+  .then((response: any) => {
+    return response.data
   })
+  
   
 }
 

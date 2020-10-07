@@ -1,41 +1,21 @@
-# TypeScript Next.js example
+# Webex API Integrations in NextJS
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
+This is a really simple project that shows the usage of Next.js with TypeScript connecting to the Webex APIs
 
 ## How to use it?
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Create a [webex bot](https://developer.webex.com/docs/bots) and get an access token.
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
+Once you have the token, create a `.env` file and add the following information:
 
 ```
-npm install --save-dev typescript
+WEBEX_BOT_TOKEN=YOUR_TOKEN
 ```
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+This token has to have access to fetch rooms and send messages, you can also use an user token
 
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
+## Routes
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+- `GET /api/rooms` Returns the rooms this bot has access to
+- `GET /api/messages/ROOM_ID` fetches the messages for that room
+- `POST /api/messages/ROOM_ID` sends a message to the room

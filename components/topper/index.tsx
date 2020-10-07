@@ -45,6 +45,12 @@ const Topper = () => {
           left: 0;
           width: 100%;
         }
+
+        .topper p{
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
       `}</style>
     </>
   );

@@ -12,6 +12,7 @@ const List = () => {
     <>
       {!response && !error && <LoadingItems />}
       <div className="room-list">
+        <h3 className="title">Rooms list</h3>
         <div className="main-container">
           {response &&
             response.data.items.map((room: Room) => {
@@ -24,8 +25,16 @@ const List = () => {
         </div>
       </div>
       <style jsx>{`
+        .title {
+          display: block;
+          font-size: 14px;
+          text-align: center;
+          margin-bottom: 24px;
+          text-transform: uppercase;
+          color: var(--purple-light);
+        }
         .room-list {
-          transform: translateY(-48px);
+          transform: translateY(-80px);
         }
         .room-list .main-container {
           align-items: flex-start;
@@ -55,7 +64,7 @@ const List = () => {
             flex-flow: column;
           }
 
-          .item-wr{
+          .item-wr {
             width: 100%;
           }
         }

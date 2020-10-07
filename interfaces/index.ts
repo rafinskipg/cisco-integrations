@@ -4,7 +4,11 @@
 //
 // import User from 'path/to/interfaces';
 
-export type User = {
+export type Room = {
   id: number
-  name: string
+  title: string,
+  lastActivity: string,
+  created: string,
+  creatorId: string,
+  ownerId: string
 }

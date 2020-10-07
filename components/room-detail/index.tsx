@@ -16,11 +16,17 @@ const Detail = ({ roomId }: PropTypes) => {
     axios
   );
 
+  const { data: responseRoom } = useSWR(
+    roomId ? `/api/rooms/${roomId}` : null,
+    axios
+  );
+
   return (
     <>
       {!response && !error && <LoadingItems />}
       <div className="room-detail">
         <div className="messages">
+          { responseRoom && <p>Last activity {responseRoom.data.lastActivity}</p>}
           {response &&
             response.data.map((message: Message) => {
               return (

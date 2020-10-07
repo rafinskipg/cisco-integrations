@@ -24,7 +24,7 @@ const Item = ({ message }: PropTypes) => {
       <style jsx>{`
         .message-item {
           display: flex;
-          margin: 15px;
+          margin: 16px 0;
         }
 
         .image-wr img {

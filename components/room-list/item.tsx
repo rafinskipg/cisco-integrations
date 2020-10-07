@@ -35,6 +35,7 @@ const Item = ({ room }: PropTypes) => {
         .room-item h2{
           text-align: center;
           font-size: 21px;
+          text-transform: capitalize;
         }
 
         .room-item p{

@@ -35,7 +35,7 @@ const Form = ({ roomId, onSuccess }: PropTypes) => {
   return (
     <>
       <div className="message-form">
-        <textarea value={text} onChange={(ev) => { setText(ev.target.value)}} />
+        <textarea placeholder="Write here…" value={text} onChange={(ev) => { setText(ev.target.value)}} />
         <button onClick={() => submit()}>Send message</button>
         {loading && <div className="loading">Loading</div>}
         {error && <div className="error">error</div>}
@@ -45,22 +45,34 @@ const Form = ({ roomId, onSuccess }: PropTypes) => {
       <style jsx>{`
 
         textarea {
-          border-radius: 8px 8px 0 0;
           display: block;
+          font-size: 16px;
+          line-height: 1.5;
           width: 100%;
           height: 100px;
           padding: 18px;
           border: none;
         }
 
+        textarea:focus, button:focus{
+          outline: none;
+        }
+
         button {
+          font-size: 16px;
           font-weight: 600;
           padding: 16px 8px;
           color: var(--purple-dark);
+          cursor: pointer;
           background: var(--green);
           border-radius: 0 0 8px 8px;
+          transition: 0.35s ease;
           width: 100%;
           border: none;
+        }
+
+        button:hover{
+          background:#52dc75;
         }
       `}</style>
     </>

@@ -46,8 +46,9 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
 
     default:
       res.status(400).json({
-        error: 'Invalid method})
-      }
+        error: 'Invalid method'
+      })
+      
   }
 }
 

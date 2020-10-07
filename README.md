@@ -12,6 +12,8 @@ Once you have the token, create a `.env` file and add the following information:
 WEBEX_BOT_TOKEN=YOUR_TOKEN
 ```
 
+This token has to have access to fetch rooms and send messages, you can also use an user token
+
 ## Routes
 
 - `GET /api/rooms` Returns the rooms this bot has access to

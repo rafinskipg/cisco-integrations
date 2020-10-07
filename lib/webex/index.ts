@@ -1,3 +1,5 @@
+import { Message } from "../../interfaces"
+
 const CISCO_API = `https://webexapis.com/v1`
 const axios = require('axios')
 
@@ -9,26 +11,34 @@ export function getRooms() {
     }
   })
   .then((response: any) => {
-    console.log(response)
     return response.data
   })
 
 }
 
-export function getMessagesForRoom(roomId: string) {
+export async function getMessagesForRoom(roomId: string) {
+  console.log('Getting messages for room ', roomId)
   return axios.get(`${CISCO_API}/messages?max=3&roomId=${roomId}`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${process.env.WEBEX_BOT_TOKEN}`
     }
   })
-  .then((response: any) => {
-    console.log(response)
-    return response.data
+  .then(async (response: any) => {
+    return Promise.all(response.data.items.map( async (item: Message) => {
+      const person = await getPerson(item.personId)
+      return {
+        ...item,
+        person
+      }
+    }))
   })
+
 }
 
+
 export function sendMessageToRoom(roomId: string, text: string) {
+  console.log('Sending message to roomId', roomId, text)
   return axios.post(`${CISCO_API}/messages`, {
     headers: {
       'Content-Type': 'application/json',
@@ -40,9 +50,10 @@ export function sendMessageToRoom(roomId: string, text: string) {
     })
   })
   .then((response: any) => {
-    console.log(response)
     return response.data
   })
+
+  
 }
 
 export function getPerson(personId: string) {
@@ -53,7 +64,12 @@ export function getPerson(personId: string) {
     }
   })
   .then((response: any) => {
-    console.log(response)
     return response.data
+  })
+  .catch(() => {
+    return {
+      avatar: '',
+      displayName: ''
+    }
   })
 }

@@ -11,7 +11,8 @@ const Item = ({ message }: PropTypes) => {
     <>
       <div className="message-item">
         <div className="image-wr">
-          <img src={message.person.avatar} />
+            {message.person.avatar && <img src={message.person.avatar} />}
+            {!message.person.avatar && <div className="person-avatar-text">{message.person.displayName.substr(0,2 )}</div>}
         </div>
         <div className="message-body">
           <p>{message.text}</p>
@@ -27,14 +28,26 @@ const Item = ({ message }: PropTypes) => {
         }
 
         .image-wr img {
-          width: 28px;
+          max-width: 100%;
           border-radius: 100%;
         }
 
         .image-wr {
           margin-right: 8px;
+          border-radius: 100%;
+          background: white;
+          padding: 2px;
+          height: 30px;
+          width: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
+        .person-avatar-text {
+          text-transform: uppercase;
+          color: black;
+        }
         .message-body {
           background: white;
           padding: 10px;

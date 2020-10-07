@@ -13,7 +13,9 @@ export type Room = {
 
 export type Person = {
   id: string,
-  avatar: string
+  avatar: string,
+  displayName: string,
+  nickName: string
 }
 
 export type Message = {

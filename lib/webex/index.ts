@@ -28,6 +28,23 @@ export function getMessagesForRoom(roomId: string) {
   })
 }
 
+export function sendMessageToRoom(roomId: string, text: string) {
+  return axios.post(`${CISCO_API}/messages`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.WEBEX_BOT_TOKEN}`
+    },
+    body: JSON.stringify({
+      roomId,
+      text
+    })
+  })
+  .then((response: any) => {
+    console.log(response)
+    return response.data
+  })
+}
+
 export function getPerson(personId: string) {
   return axios.get(`${CISCO_API}/people/${personId}`, {
     headers: {

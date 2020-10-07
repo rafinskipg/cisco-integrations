@@ -4,7 +4,7 @@ const CISCO_API = `https://webexapis.com/v1`
 const axios = require('axios')
 
 export function getRooms() {
-  return axios.get(`${CISCO_API}/rooms?max=3`, {
+  return axios.get(`${CISCO_API}/rooms?max=10`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${process.env.WEBEX_BOT_TOKEN}`
@@ -13,7 +13,19 @@ export function getRooms() {
   .then((response: any) => {
     return response.data
   })
+}
 
+
+export function getRoom(roomId: string) {
+  return axios.get(`${CISCO_API}/rooms/${roomId}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.WEBEX_BOT_TOKEN}`
+    }
+  })
+  .then((response: any) => {
+    return response.data
+  })
 }
 
 export async function getMessagesForRoom(roomId: string) {

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { getRooms } from '../../lib/webex'
+import { getRooms } from '../../../lib/webex'
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {
